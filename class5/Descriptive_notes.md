@@ -295,6 +295,222 @@ The implementation should follow the same style used for:
 * Batch Normalization
 
 ---
+# A Note about regularisation
+
+
+## Regularization in Deep Learning: A Unified View
+
+Regularization refers to a collection of techniques used to **control model complexity**, improve **generalization**, and reduce **overfitting**.
+Although textbooks often present regularization methods as a flat list, they can be meaningfully grouped based on *where* and *how* they act in the learning pipeline.
+
+This section organizes regularization into **three conceptual categories**:
+
+1. **Data-based regularization**
+2. **Algorithmic regularization**
+3. **Process / Network-based regularization**
+
+This classification is not standard terminology, but it provides a **useful mental model** for understanding why different techniques work.
+
+---
+
+## 1. Data-Based Regularization
+
+### Definition
+
+Data-based regularization modifies or augments the **training data distribution** to prevent the model from memorizing spurious patterns.
+
+### Core idea
+
+> Increase effective data diversity without changing the model.
+
+---
+
+### Common examples
+
+* **Data augmentation**
+
+  * Image flips, rotations, crops
+  * Color jittering
+  * Noise injection
+* **Mixup / CutMix**
+
+  * Linear or spatial mixing of samples
+* **Input noise**
+
+  * Gaussian noise added to inputs
+
+---
+
+### Effect on learning
+
+* Forces the model to learn **invariances**
+* Reduces sensitivity to small perturbations
+* Acts before the model ever sees the data
+
+---
+
+### Key insight
+
+Data-based regularization operates **outside the model**.
+It reshapes the learning problem rather than constraining the parameters directly.
+
+---
+
+## 2. Algorithmic Regularization
+
+### Definition
+
+Algorithmic regularization alters the **optimization objective or optimization dynamics** to penalize overly complex solutions.
+
+### Core idea
+
+> Restrict what the optimizer is allowed to prefer.
+
+---
+
+### Common examples
+
+* **L2 regularization (weight decay)**
+$$
+  [
+  \mathcal{L} = \mathcal{L}_{data} + \lambda |\theta|^2
+  ]
+$$
+
+* **L1 regularization**
+
+  * Encourages sparsity
+* **Early stopping**
+
+  * Stops optimization before overfitting
+* **Label smoothing**
+
+  * Softens hard targets
+* **Gradient clipping**
+
+  * Controls optimization instability
+
+---
+
+### Important clarification
+
+Although often grouped together, these methods regularize **different things**:
+
+* Weight decay regularizes **parameter magnitude**
+* Early stopping regularizes **training time**
+* Label smoothing regularizes **target certainty**
+
+---
+
+### Key insight
+
+Algorithmic regularization works by **changing the loss landscape or optimization trajectory**, not the model structure.
+
+---
+
+## 3. Process / Network-Based Regularization
+
+### Definition
+
+Process-based (or network-based) regularization modifies the **internal computation graph or architecture** during training.
+
+### Core idea
+
+> Introduce controlled uncertainty inside the model.
+
+---
+
+### Common examples
+
+* **Dropout / Dropout2d**
+* **Stochastic depth**
+* **Batch Normalization**
+* **Layer Normalization**
+* **Residual connections (indirectly)**
+
+---
+
+### Important correction / clarification
+
+Batch Normalization is **not designed primarily as a regularizer**, but:
+
+* It introduces noise due to batch statistics
+* This noise has a **regularizing side effect**
+
+Therefore, BatchNorm is best viewed as:
+
+> *An optimization technique with regularization consequences*
+
+---
+
+### Why dropout behaves differently in CNNs
+
+* Dropping individual pixels is ineffective due to spatial correlation
+* Channel-wise dropout (`Dropout2d`) is more meaningful
+* In modern CNNs, dropout is often reduced or removed in favor of:
+
+  * Data augmentation
+  * BatchNorm
+  * Weight decay
+
+---
+
+### Key insight
+
+Process-based regularization operates **during forward passes**, not at the data or loss level.
+
+---
+
+## 4. Relationship Between the Three Forms
+
+| Category      | Acts On             | When It Operates    |
+| ------------- | ------------------- | ------------------- |
+| Data-based    | Inputs              | Before training     |
+| Algorithmic   | Loss / optimizer    | During optimization |
+| Process-based | Network computation | During forward pass |
+
+---
+
+## 5. Why This Classification Is Useful
+
+Traditional presentations list techniques without explaining **why they belong together**.
+This three-part classification answers:
+
+* *What is being constrained?*
+* *Where is randomness introduced?*
+* *When does regularization act?*
+
+It also explains why modern pipelines often rely more on:
+
+* Data augmentation
+* Weight decay
+* Normalization layers
+
+…and less on classical dropout-heavy designs.
+
+---
+
+## 6. Unifying Principle
+
+> All regularization methods limit a model’s ability to fit noise,
+> but they do so at **different stages of the learning pipeline**.
+
+Understanding *where* a method acts is more important than memorizing *which* method to use.
+
+---
+
+## Bridge to Next Class (Loss Functions)
+
+This classification naturally prepares the ground for loss functions:
+
+* Losses themselves often include **regularization terms**
+* Many unsupervised methods (PCA, K-Means) are entirely defined by their objective functions
+* Regularization is inseparable from optimization
+
+The transition from **regularization → loss functions** is therefore conceptually continuous, not a topic switch.
+
+
+---
 
 ## 10. Next Class (From Final Notebook Cell)
 
