@@ -133,11 +133,9 @@ Normalization is performed over:
 Given a channel tensor ( x ):
 
 $$
-
 [
 \hat{x} = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}}
 ]
-
 $$
 
 where:
@@ -234,11 +232,9 @@ For a given output channel:
 Mathematically:
 
 $$
-
 [
 y = \sum_{c,h,w} x_{c,h,w} \cdot w_{c,h,w} + b
 ]
-
 $$
 
 ---
