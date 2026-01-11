@@ -141,7 +141,6 @@ $$
 ### Total parameters
 
 $$
-
 [
 \boxed{
 C_{\text{out}} \times C_{\text{in}} \times K \times K
@@ -361,6 +360,9 @@ $$
 \text{minimize } -\log p(y \mid x, \theta)
 ]
 $$
+
+
+
 ---
 
 ### Why log-likelihood is used
