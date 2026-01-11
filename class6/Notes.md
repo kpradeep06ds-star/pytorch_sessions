@@ -424,6 +424,7 @@ $$
 ### 4.2 Laplace Distribution → Mean Absolute Error (MAE)
 
 Assumption:
+
 $$
 [
 y \mid x \sim \text{Laplace}(\mu(x), b)
@@ -457,6 +458,7 @@ $$
 ### 5.1 Bernoulli Assumption
 
 For binary targets:
+
 $$
 [
 y \in {0,1}
@@ -473,7 +475,7 @@ $$
 
 Where:
 
-* $ ( p(x) ) $ is the model’s predicted probability
+$( p(x) )$ is the model’s predicted probability
 
 ---
 
