@@ -211,15 +211,15 @@ $$
 Applying the chain rule:
 
 $$
-[
+\begin{aligned}
 \frac{d\ell}{dw}
-================
+&=
 \frac{d\ell}{dr}
 \cdot
 \frac{dr}{d\hat y}
 \cdot
 \frac{d\hat y}{dw}
-]
+\end{aligned}
 $$
 
 
