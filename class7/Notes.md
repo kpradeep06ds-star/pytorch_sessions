@@ -211,6 +211,7 @@ $$
 Applying the chain rule:
 
 $$
+
 [
 \frac{d\ell}{dw}
 ================
@@ -221,6 +222,7 @@ $$
 \cdot
 \frac{d\hat y}{dw}
 ]
+
 $$
 
 * $(\frac{d\hat y}{dw} = X)$
