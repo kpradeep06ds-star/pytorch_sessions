@@ -28,7 +28,10 @@ $$
 [
 \frac{\partial \ell}{\partial w_0} = -\frac{2}{n}(y - \hat y)
 ]
+$$
 
+
+$$
 [
 \frac{\partial \ell}{\partial w_1} = -\frac{2}{n}(y - \hat y)x
 ]
