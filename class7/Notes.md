@@ -1,7 +1,7 @@
 ---
 
 # Gradient Descent in Linear Regression: From Scalars to Vectors
-(Don't worry about bullet 7, we will discuss chain rule little later)
+(Don't worry about bullet 8, we will discuss chain rule little later)
 ---
 
 ## 1. Scalar Linear Regression (Single Feature)
