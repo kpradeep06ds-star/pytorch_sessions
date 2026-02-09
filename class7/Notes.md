@@ -140,7 +140,7 @@ X : \mathbb{R}^d \rightarrow \mathbb{R}^n
 $$
 
 * Forward direction: parameters → predictions
-* Residuals live in (\mathbb{R}^n)
+* Residuals live in $(\mathbb{R}^n)$
 
 To compute gradients, information must be transported **back to parameter space**.
 
