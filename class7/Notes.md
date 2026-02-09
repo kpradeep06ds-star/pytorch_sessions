@@ -190,12 +190,12 @@ In vector algebra:
 
 $$
 [
-X^T r \neq r^T X^T
+X^T r \neq r^T X
 ]
 $$
 
 * $(X^T r)$ is a vector in $(\mathbb{R}^d)$
-* $(r^T X^T)$ is a row vector (dual representation)
+* $(r^T X)$ is a row vector (dual representation)
 
 Gradient descent requires a **direction in parameter space**, not a scalar or row vector.
 
